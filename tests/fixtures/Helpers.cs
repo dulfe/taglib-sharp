@@ -7,7 +7,11 @@ namespace TagLib.Tests
 	{
 		#region OS-Independent Path composition
 
-		public static readonly string TestsDir = Path.GetDirectoryName(System.Reflection.Assembly.GetAssembly(typeof(Debugger)).Location);
+		// Get current assembly location
+		public static readonly string BaseDir = Path.GetDirectoryName(System.Reflection.Assembly.GetAssembly(typeof(Debugger)).Location);
+		// Go back up to the test source folder
+		public static readonly string TestsDir = Path.Combine(BaseDir, "..", "..", "..", " ").TrimEnd();
+		// Resources
 		public static readonly string Samples = Path.Combine(TestsDir, "samples", " ").TrimEnd();
 		public static readonly string Covers = Path.Combine(TestsDir, "..", "examples", "covers", " ").TrimEnd();
 

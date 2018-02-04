@@ -2,6 +2,7 @@ using System;
 using System.Reflection;
 using NUnit.Framework;
 using Gdk;
+using System.IO;
 
 namespace TagLib.Tests.Images.Validators
 {
@@ -188,11 +189,15 @@ namespace TagLib.Tests.Images.Validators
 		}
 
 		string ImageFile {
-			get { return String.Format ("{0}/{1}", ImageDirectory, ImageFileName); }
+			get {
+				return Path.Combine(ImageDirectory, ImageFileName);
+			}
 		}
 
 		string TempImageFile {
-			get { return String.Format ("{0}/{1}", TempDirectory, TempImageFileName); }
+			get {
+				return Path.Combine(TempDirectory, TempImageFileName);
+			}
 		}
 
 		/// <summary>
